@@ -46,12 +46,12 @@
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.example.firebased.AboutFragment"
-        android:label="fragment_about"
+        android:label="About app"
         tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.example.firebased.DetailsFragment"
-        android:label="fragment_details"
+        android:label="User Details"
         tools:layout="@layout/fragment_details" />
     <action
         android:id="@+id/action_global_aboutFragment"
