@@ -42,7 +42,22 @@
         android:id="@+id/newsFragment"
         android:name="com.example.firebased.NewsFragment"
         android:label="News"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/action_newsFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@anim/slide_in_top"
+            app:exitAnim="@anim/slide_out_bottom"
+            app:popEnterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_top"/>
+        <action
+            android:id="@+id/action_newsFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment"
+            app:enterAnim="@anim/slide_in_top"
+            app:exitAnim="@anim/slide_out_bottom"
+            app:popEnterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_top"/>
+    </fragment>
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.example.firebased.AboutFragment"
@@ -53,11 +68,11 @@
         android:name="com.example.firebased.DetailsFragment"
         android:label="User Details"
         tools:layout="@layout/fragment_details" />
-    <action
+    <!--<action
         android:id="@+id/action_global_aboutFragment"
         app:destination="@id/aboutFragment"
         app:enterAnim="@anim/slide_in_top"
         app:exitAnim="@anim/slide_out_bottom"
         app:popEnterAnim="@anim/slide_in_bottom"
-        app:popExitAnim="@anim/slide_out_top" />
+        app:popExitAnim="@anim/slide_out_top" />-->
 </navigation>

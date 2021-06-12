@@ -12,23 +12,23 @@ import androidx.navigation.ui.setupActionBarWithNavController
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var navController: NavController
+    //private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val navHostFragment =
+        /*val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.findNavController()
 
         val bar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
 
         setSupportActionBar(bar)
-        setupActionBarWithNavController(navController)
+        setupActionBarWithNavController(navController)*/
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.options_menu, menu)
         return true
     }
@@ -45,5 +45,5 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
-    }
+    }*/
 }

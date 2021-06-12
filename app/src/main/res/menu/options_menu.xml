@@ -8,9 +8,14 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/detailsFragment"
+        android:id="@+id/licenses"
+        android:title="Licenses"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/details"
         android:menuCategory="secondary"
-        android:title="Details"
+        android:title="User Details"
         app:showAsAction="never" />
 
 </menu>
