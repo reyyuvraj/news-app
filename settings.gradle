@@ -1,0 +1,2 @@
+rootProject.name = "Firebased"
+include ':app'

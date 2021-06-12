@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginVertical="5dp"
+    tools:context=".AboutFragment">
+
+    <TextView
+        android:id="@+id/ut0001"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This is about the app."
+        android:textSize="30dp"
+        android:textStyle="italic" />
+
+</RelativeLayout>
