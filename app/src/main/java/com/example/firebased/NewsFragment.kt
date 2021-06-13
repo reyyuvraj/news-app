@@ -3,6 +3,7 @@ package com.example.firebased
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
+import android.view.inputmethod.InputBinding
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -11,10 +12,12 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.onNavDestinationSelected
+import com.example.firebased.databinding.FragmentNewsBinding
 
 class NewsFragment : Fragment() {
 
     private lateinit var navController: NavController
+    private lateinit var binding: FragmentNewsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +38,11 @@ class NewsFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.options_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        menu.clear()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
