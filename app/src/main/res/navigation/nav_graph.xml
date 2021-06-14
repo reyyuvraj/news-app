@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.example.firebased.SignInFragment"
+        android:name="com.example.firebased.fragment.SignInFragment"
         android:label="Sign in"
         tools:layout="@layout/fragment_sign_in">
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.firebased.SignUpFragment"
+        android:name="com.example.firebased.fragment.SignUpFragment"
         android:label="Sign up"
         tools:layout="@layout/fragment_sign_up">
         <action
@@ -40,24 +40,55 @@
     </fragment>
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.example.firebased.NewsFragment"
+        android:name="com.example.firebased.fragment.NewsFragment"
         android:label="News"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news">
+        <action
+            android:id="@+id/action_newsFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@anim/slide_in_top"
+            app:exitAnim="@anim/slide_out_bottom"
+            app:popEnterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_top" />
+        <action
+            android:id="@+id/action_newsFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment"
+            app:enterAnim="@anim/slide_in_top"
+            app:exitAnim="@anim/slide_out_bottom"
+            app:popEnterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_top" />
+        <action
+            android:id="@+id/action_newsFragment_to_signInFragment"
+            app:destination="@id/signInFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.example.firebased.AboutFragment"
-        android:label="fragment_about"
-        tools:layout="@layout/fragment_about" />
+        android:name="com.example.firebased.fragment.AboutFragment"
+        android:label="About app"
+        tools:layout="@layout/fragment_about">
+        <action
+            android:id="@+id/action_aboutFragment_to_newsFragment"
+            app:destination="@id/newsFragment"
+            app:enterAnim="@anim/slide_in_top"
+            app:exitAnim="@anim/slide_out_bottom"
+            app:popEnterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_top" />
+    </fragment>
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.example.firebased.DetailsFragment"
-        android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
-    <action
-        android:id="@+id/action_global_aboutFragment"
-        app:destination="@id/aboutFragment"
-        app:enterAnim="@anim/slide_in_top"
-        app:exitAnim="@anim/slide_out_bottom"
-        app:popEnterAnim="@anim/slide_in_bottom"
-        app:popExitAnim="@anim/slide_out_top" />
+        android:name="com.example.firebased.fragment.DetailsFragment"
+        android:label="User Details"
+        tools:layout="@layout/fragment_details">
+        <action
+            android:id="@+id/action_detailsFragment_to_newsFragment"
+            app:destination="@id/newsFragment"
+            app:enterAnim="@anim/slide_in_top"
+            app:exitAnim="@anim/slide_out_bottom"
+            app:popEnterAnim="@anim/slide_in_bottom"
+            app:popExitAnim="@anim/slide_out_top" />
+    </fragment>
 </navigation>
