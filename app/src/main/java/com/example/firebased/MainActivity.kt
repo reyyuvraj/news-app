@@ -1,26 +1,51 @@
 package com.example.firebased
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.onNavDestinationSelected
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.firebased.databinding.ActivityMainBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var navController: NavController
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
+        auth = FirebaseAuth.getInstance()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.options_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.about -> {
+                navController.navigate(R.id.action_newsFragment_to_aboutFragment)
+                //Toast.makeText(requireActivity(), "FIX THIS!!!", Toast.LENGTH_SHORT).show()
+            }
+            R.id.licenses -> {
+                //startActivity(Intent(this, OssLicensesMenuActivity::class.java))
+                //Toast.makeText(requireActivity(), "Licenses having an issue!!!", Toast.LENGTH_SHORT.show()
+            }
+            R.id.details -> {
+                navController.navigate(R.id.action_newsFragment_to_detailsFragment)
+                //Toast.makeText(requireActivity(), "FIX THIS!!!", Toast.LENGTH_SHORT).show()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
