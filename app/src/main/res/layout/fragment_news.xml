@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#C1C1C1"
     tools:context=".fragment.NewsFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -18,15 +19,17 @@
         android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="5dp"
         android:indeterminate="true"
-        android:visibility="visible"
-        android:layout_below="@+id/toolbar" />
+        android:visibility="visible" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/newsView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/progressBar"
+        android:layout_marginTop="3dp"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
 
 </RelativeLayout>

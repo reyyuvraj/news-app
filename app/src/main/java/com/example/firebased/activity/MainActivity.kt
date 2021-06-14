@@ -39,15 +39,17 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.about -> {
                 navController.navigate(R.id.action_newsFragment_to_aboutFragment)
-                //Toast.makeText(requireActivity(), "FIX THIS!!!", Toast.LENGTH_SHORT).show()
             }
             R.id.licenses -> {
                 startActivity(Intent(this, OssLicensesMenuActivity::class.java))
-                //Toast.makeText(this, "Licenses having an issue!!!", Toast.LENGTH_SHORT).show()
             }
             R.id.details -> {
                 navController.navigate(R.id.action_newsFragment_to_detailsFragment)
-                //Toast.makeText(requireActivity(), "FIX THIS!!!", Toast.LENGTH_SHORT).show()
+            }
+            R.id.signOut -> {
+                auth.signOut()
+                Toast.makeText(this,"Successfully Signed out.", Toast.LENGTH_SHORT).show()
+                navController.navigate(R.id.action_newsFragment_to_signInFragment)
             }
         }
         return super.onOptionsItemSelected(item)

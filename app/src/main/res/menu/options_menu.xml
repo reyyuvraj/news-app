@@ -14,8 +14,12 @@
 
     <item
         android:id="@+id/details"
-        android:menuCategory="secondary"
         android:title="User Details"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/signOut"
+        android:title="Sign Out"
+        app:showAsAction="never"/>
 
 </menu>

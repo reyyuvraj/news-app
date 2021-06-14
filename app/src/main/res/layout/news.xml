@@ -37,9 +37,9 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
+                android:layout_centerVertical="true"
                 android:layout_toEndOf="@id/categorySourceName"
-                android:src="@drawable/correct"
-                android:layout_centerVertical="true"/>
+                android:src="@drawable/correct" />
 
         </RelativeLayout>
 
@@ -58,7 +58,7 @@
             android:layout_below="@+id/categoryTitle"
             android:layout_marginTop="5dp"
             android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
             android:src="@drawable/post01" />
 
     </LinearLayout>
