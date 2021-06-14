@@ -1,7 +1,8 @@
 package com.example.firebased.fragment
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
@@ -32,16 +33,18 @@ class NewsFragment : Fragment(), NewsAdapter.OnNewsClick {
         (requireActivity() as AppCompatActivity).setSupportActionBar(toolbar)
         val progressbar: ProgressBar = view.findViewById(R.id.progressBar)
         val news = NewsClient.newsCall.getData("in", 1)
-        news.enqueue(object: Callback<DataItem> {
+        news.enqueue(object : Callback<DataItem> {
             override fun onResponse(call: Call<DataItem>, response: Response<DataItem>) {
                 val news = response.body()
-                if(news!=null){
-                    adapter = NewsAdapter(context!!,news.articles,
-                        this@NewsFragment)
+                if (news != null) {
+                    adapter = NewsAdapter(
+                        context!!, news.articles,
+                        this@NewsFragment
+                    )
                     val recyclerView: RecyclerView = view.findViewById(R.id.newsView)
                     progressbar.visibility = View.GONE
                     recyclerView.adapter = adapter
-                    recyclerView.layoutManager =  LinearLayoutManager(context)
+                    recyclerView.layoutManager = LinearLayoutManager(context)
                 }
             }
 
@@ -52,13 +55,9 @@ class NewsFragment : Fragment(), NewsAdapter.OnNewsClick {
     }
 
     override fun onItemClick(article: Info, position: Int) {
-        val bundle = Bundle()
-        bundle.putString("url",article.url)
-        val fragment = WebFragment()
-        Log.d("call","call01")
-        fragment.arguments = bundle
-        requireActivity().supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment,fragment)
-            .addToBackStack("Hello").commit()
+        val uri = Uri.parse(article.url)
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        requireActivity().startActivity(intent)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
