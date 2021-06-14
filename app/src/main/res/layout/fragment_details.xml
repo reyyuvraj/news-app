@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginHorizontal="20dp"
     android:layout_marginVertical="5dp"
-    tools:context=".DetailsFragment">
+    tools:context=".fragment.DetailsFragment">
 
     <TextView
         android:id="@+id/ls001"

@@ -1,17 +1,30 @@
-package com.example.firebased
+package com.example.firebased.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.Menu
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.example.firebased.databinding.FragmentSignInBinding
-import com.google.firebase.auth.FirebaseAuth
+import com.example.firebased.R
 
+class SignInFragment : Fragment(R.layout.fragment_sign_in) {
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        view.findViewById<Button>(R.id.in007).setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_signInFragment_to_newsFragment)
+        }
+
+        view.findViewById<TextView>(R.id.to_sign_up).setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_signInFragment_to_signUpFragment)
+        }
+    }
+}
+
+/*
 class SignInFragment : Fragment(R.layout.fragment_sign_in) {
 
     private lateinit var auth: FirebaseAuth
@@ -64,4 +77,4 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
             navController.navigate(R.id.action_signInFragment_to_signUpFragment)
         }
     }
-}
+}*/

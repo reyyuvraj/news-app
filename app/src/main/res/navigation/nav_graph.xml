@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.example.firebased.SignInFragment"
+        android:name="com.example.firebased.fragment.SignInFragment"
         android:label="Sign in"
         tools:layout="@layout/fragment_sign_in">
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.firebased.SignUpFragment"
+        android:name="com.example.firebased.fragment.SignUpFragment"
         android:label="Sign up"
         tools:layout="@layout/fragment_sign_up">
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.example.firebased.NewsFragment"
+        android:name="com.example.firebased.fragment.NewsFragment"
         android:label="News"
         tools:layout="@layout/fragment_news" >
         <action
@@ -60,12 +60,12 @@
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.example.firebased.AboutFragment"
+        android:name="com.example.firebased.fragment.AboutFragment"
         android:label="About app"
         tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.example.firebased.DetailsFragment"
+        android:name="com.example.firebased.fragment.DetailsFragment"
         android:label="User Details"
         tools:layout="@layout/fragment_details" />
     <!--<action

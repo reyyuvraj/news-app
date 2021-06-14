@@ -1,4 +1,4 @@
-package com.example.firebased
+package com.example.firebased.fragment
 
 import android.os.Bundle
 import android.util.Log
@@ -6,17 +6,37 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.example.firebased.R
 import com.example.firebased.databinding.FragmentSignUpBinding
-import com.example.firebased.model.UserDetails
+import com.example.firebased.model.data.UserDetails
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.util.regex.Pattern
 
+
+class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        view.findViewById<Button>(R.id.up015).setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_signInFragment)
+        }
+
+        view.findViewById<TextView>(R.id.to_sign_in).setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_signInFragment)
+        }
+    }
+}
+
+/*
 class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
     private lateinit var binding: FragmentSignUpBinding
@@ -118,3 +138,4 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
         return m.matches()
     }
 }
+*/

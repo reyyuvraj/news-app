@@ -34,6 +34,13 @@
                 android:text="NewsSource"
                 android:textSize="14dp" />
 
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_toEndOf="@id/categorySourceName"
+                android:src="@drawable/correct"
+                android:layout_centerVertical="true"/>
+
         </RelativeLayout>
 
         <TextView
