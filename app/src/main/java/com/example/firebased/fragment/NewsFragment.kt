@@ -5,14 +5,13 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.ProgressBar
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firebased.R
-import com.example.firebased.model.data.DataItem
-import com.example.firebased.model.data.Info
+import com.example.firebased.viewmodel.model.data.DataItem
+import com.example.firebased.viewmodel.model.data.Info
 import com.example.firebased.recycler.NewsAdapter
 import com.example.firebased.service.news.NewsClient
 import retrofit2.Call
@@ -29,8 +28,8 @@ class NewsFragment : Fragment(), NewsAdapter.OnNewsClick {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_news, container, false)
-        val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
-        (requireActivity() as AppCompatActivity).setSupportActionBar(toolbar)
+        /*val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
+        (requireActivity() as AppCompatActivity).setSupportActionBar(toolbar)*/
         val progressbar: ProgressBar = view.findViewById(R.id.progressBar)
         val news = NewsClient.newsCall.getData("in", 1)
         news.enqueue(object : Callback<DataItem> {
@@ -49,6 +48,7 @@ class NewsFragment : Fragment(), NewsAdapter.OnNewsClick {
             }
 
             override fun onFailure(call: Call<DataItem>, t: Throwable) {
+                Toast.makeText(requireActivity(),"Failed to fetch news.",Toast.LENGTH_SHORT).show()
             }
         })
         return view

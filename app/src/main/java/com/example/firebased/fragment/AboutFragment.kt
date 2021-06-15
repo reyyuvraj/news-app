@@ -1,19 +1,31 @@
 package com.example.firebased.fragment
 
 import android.os.Bundle
-import android.view.View
-import android.widget.ImageView
+import android.view.*
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import com.example.firebased.R
+import com.example.firebased.databinding.FragmentAboutBinding
 
-class AboutFragment : Fragment(R.layout.fragment_about) {
+class AboutFragment : Fragment() {
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private lateinit var binding: FragmentAboutBinding
 
-        view.findViewById<ImageView>(R.id.back).setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_aboutFragment_to_newsFragment)
-        }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        menu.clear()
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentAboutBinding.inflate(layoutInflater)
+        return binding.root
     }
 }

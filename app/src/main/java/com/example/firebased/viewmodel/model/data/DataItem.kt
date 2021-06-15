@@ -1,4 +1,4 @@
-package com.example.firebased.model.data
+package com.example.firebased.viewmodel.model.data
 
 data class DataItem (
     val totalResults: Int,

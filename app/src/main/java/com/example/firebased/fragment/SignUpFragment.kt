@@ -13,8 +13,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.firebased.R
 import com.example.firebased.databinding.FragmentSignUpBinding
-import com.example.firebased.model.data.UserDetails
+import com.example.firebased.viewmodel.model.data.UserDetails
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -23,6 +25,8 @@ class SignUpFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: FragmentSignUpBinding
+    private lateinit var rootNode: FirebaseDatabase
+    private lateinit var reference: DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -72,32 +76,6 @@ class SignUpFragment : Fragment() {
         val bio: String =
             binding.up014.text.toString()
 
-        /*if (email.isEmpty()) {
-            Toast.makeText(this.context, "Please enter email", Toast.LENGTH_SHORT).show()
-        }
-
-        if (password.isEmpty()) {
-            Toast.makeText(this.context, "Please enter password", Toast.LENGTH_SHORT).show()
-        }
-
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            Toast.makeText(this.context, "Please enter valid email", Toast.LENGTH_SHORT).show()
-        }
-
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    Toast.makeText(this.context, "Sign up successful.", Toast.LENGTH_SHORT).show()
-                    Toast.makeText(
-                        this.context,
-                        "Automatic sign in. Going to news.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else {
-                    Toast.makeText(this.context, "Sign up failed.", Toast.LENGTH_SHORT).show()
-                }
-            }*/
-
         if (name.isEmpty() || email.isEmpty() || password.isEmpty() || cPassword.isEmpty() || age.isEmpty() || phone.isEmpty() || bio.isEmpty()) {
             Toast.makeText(this.context, "Please enter all of the credentials.", Toast.LENGTH_SHORT)
                 .show()
@@ -112,22 +90,24 @@ class SignUpFragment : Fragment() {
                     if (password.compareTo(cPassword) == 0) {
                         val userDetails =
                             UserDetails(name, email, password, cPassword, age, phone, bio)
-                        auth.createUserWithEmailAndPassword(email, password)
-                            .addOnCompleteListener { task ->
-                                if (task.isSuccessful) {
-                                    Toast.makeText(
-                                        this.context,
-                                        "Sign up successful.",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                } else {
-                                    Toast.makeText(
-                                        this.context,
-                                        "Sign up failed.",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
+                        reference.child(email).setValue(userDetails).addOnCompleteListener {
+                            auth.createUserWithEmailAndPassword(email, password)
+                                .addOnCompleteListener { task ->
+                                    if (task.isSuccessful) {
+                                        Toast.makeText(
+                                            this.context,
+                                            "Sign up successful.",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    } else {
+                                        Toast.makeText(
+                                            this.context,
+                                            "Sign up failed.",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
                                 }
-                            }
+                        }
                     } else {
                         Toast.makeText(
                             this.context,
