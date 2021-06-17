@@ -1,4 +1,4 @@
-package com.example.firebased.viewmodel.model.data
+package com.example.firebased.data
 
 data class UserDetails (
     val name: String,

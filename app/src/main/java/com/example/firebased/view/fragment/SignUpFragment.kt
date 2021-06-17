@@ -1,4 +1,4 @@
-package com.example.firebased.fragment
+package com.example.firebased.view.fragment
 
 import android.os.Bundle
 import android.util.Patterns
@@ -9,11 +9,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.firebased.R
 import com.example.firebased.databinding.FragmentSignUpBinding
-import com.example.firebased.viewmodel.model.data.UserDetails
+import com.example.firebased.data.UserDetails
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -39,6 +40,7 @@ class SignUpFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {

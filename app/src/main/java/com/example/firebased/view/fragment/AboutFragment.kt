@@ -1,5 +1,7 @@
-package com.example.firebased.fragment
+package com.example.firebased.view.fragment
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.Toolbar
@@ -27,5 +29,15 @@ class AboutFragment : Fragment() {
     ): View? {
         binding = FragmentAboutBinding.inflate(layoutInflater)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.ut005.setOnClickListener {
+            val uri = Uri.parse("https://github.com/reyyuvraj")
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+            requireActivity().startActivity(intent)
+        }
     }
 }

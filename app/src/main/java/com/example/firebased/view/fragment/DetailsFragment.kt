@@ -1,4 +1,4 @@
-package com.example.firebased.fragment
+package com.example.firebased.view.fragment
 
 import android.os.Bundle
 import android.view.View

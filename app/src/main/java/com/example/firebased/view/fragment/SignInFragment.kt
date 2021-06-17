@@ -1,4 +1,4 @@
-package com.example.firebased.fragment
+package com.example.firebased.view.fragment
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -34,6 +35,7 @@ class SignInFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {

@@ -3,15 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.AboutFragment">
-
-    <!--<androidx.appcompat.widget.Toolbar
-        android:id="@+id/ut001"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/pink"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />-->
+    tools:context=".view.fragment.AboutFragment">
 
     <TextView
         android:id="@+id/ut002"
@@ -41,6 +33,15 @@
         android:layout_marginTop="10dp"
         android:text="Created by reyyuvraj"
         android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/ut005"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/ut004"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/github"/>
 
 
 </RelativeLayout>

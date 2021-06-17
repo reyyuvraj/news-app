@@ -1,4 +1,4 @@
-package com.example.firebased.fragment
+package com.example.firebased.view.fragment
 
 import android.content.Intent
 import android.net.Uri
@@ -6,12 +6,14 @@ import android.os.Bundle
 import android.view.*
 import android.widget.ProgressBar
 import android.widget.Toast
+import android.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firebased.R
-import com.example.firebased.viewmodel.model.data.DataItem
-import com.example.firebased.viewmodel.model.data.Info
+import com.example.firebased.data.DataItem
+import com.example.firebased.data.Info
 import com.example.firebased.recycler.NewsAdapter
 import com.example.firebased.service.news.NewsClient
 import retrofit2.Call
@@ -28,8 +30,7 @@ class NewsFragment : Fragment(), NewsAdapter.OnNewsClick {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_news, container, false)
-        /*val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
-        (requireActivity() as AppCompatActivity).setSupportActionBar(toolbar)*/
+        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
         val progressbar: ProgressBar = view.findViewById(R.id.progressBar)
         val news = NewsClient.newsCall.getData("in", 1)
         news.enqueue(object : Callback<DataItem> {
