@@ -11,8 +11,9 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="20dp"
-        android:text="This is about the app."
-        android:textSize="30dp"
+        android:layout_marginTop="120dp"
+        android:text="About us"
+        android:textSize="25dp"
         android:textStyle="italic" />
 
     <ImageView
@@ -39,9 +40,16 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_below="@id/ut004"
-        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/github"/>
+        android:layout_marginTop="20dp"
+        android:src="@drawable/github" />
 
-
+    <TextView
+        android:id="@+id/ut006"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ut005"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="App incomplete due to incompetence." />
 </RelativeLayout>

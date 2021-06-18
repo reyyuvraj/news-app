@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -55,7 +56,8 @@
             android:id="@+id/up004"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email ID" />
+            android:hint="Email ID"
+            android:inputType="textEmailAddress"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,7 +68,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/up003"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        app:endIconMode="password_toggle">
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/up006"
@@ -84,7 +87,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/up005"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        app:endIconMode="password_toggle">
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/up008"
@@ -109,7 +113,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Age"
-            android:inputType="number" />
+            android:inputType="number"
+            android:maxLength="3" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -127,7 +132,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Phone"
-            android:inputType="number" />
+            android:inputType="number"
+            android:maxLength="10" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -148,19 +154,31 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <android.widget.Button
+
+    <RelativeLayout
         android:id="@+id/up015"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/up013"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/email_button"
-        android:gravity="center"
-        android:padding="7dp"
-        android:text="Sign up"
-        android:textColor="@color/white"
-        android:textSize="22dp" />
+        android:layout_marginTop="30dp">
+
+        <android.widget.Button
+            android:id="@+id/up0015"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/email_button"
+            android:gravity="center"
+            android:text="Sign up"
+            android:textColor="@color/white" />
+
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/blue"/>
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -43,9 +43,9 @@ class MainActivity : AppCompatActivity() {
             R.id.licenses -> {
                 startActivity(Intent(this, OssLicensesMenuActivity::class.java))
             }
-            /*R.id.details -> {
+            R.id.details -> {
                 navController.navigate(R.id.action_newsFragment_to_detailsFragment)
-            }*/
+            }
             R.id.signOut -> {
                 auth.signOut()
                 Toast.makeText(this, "Successfully Signed out.", Toast.LENGTH_SHORT).show()
