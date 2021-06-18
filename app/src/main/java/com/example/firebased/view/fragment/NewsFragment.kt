@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.*
 import android.widget.ProgressBar
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,7 +31,7 @@ class NewsFragment : Fragment(), NewsAdapter.OnNewsClick {
         val view = inflater.inflate(R.layout.fragment_news, container, false)
         (activity as AppCompatActivity?)!!.supportActionBar!!.show()
         val progressbar: ProgressBar = view.findViewById(R.id.progressBar)
-        val news = NewsClient.newsCall.getData("in", 1)
+        val news = NewsClient.getClient(requireContext()).getData("in", 1)
         news.enqueue(object : Callback<DataItem> {
             override fun onResponse(call: Call<DataItem>, response: Response<DataItem>) {
                 val news = response.body()
@@ -49,7 +48,8 @@ class NewsFragment : Fragment(), NewsAdapter.OnNewsClick {
             }
 
             override fun onFailure(call: Call<DataItem>, t: Throwable) {
-                Toast.makeText(requireActivity(),"Failed to fetch news.",Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireActivity(), "Failed to fetch news.", Toast.LENGTH_SHORT)
+                    .show()
             }
         })
         return view
