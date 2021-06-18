@@ -33,7 +33,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/up002"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="30dp"
+        app:endIconMode="clear_text">
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/up0004"
@@ -50,7 +51,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/up0003"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        app:endIconMode="clear_text">
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/up004"
@@ -144,7 +146,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/up011"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        app:endIconMode="clear_text">
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/up014"
@@ -185,7 +188,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/up015"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:layout_weight="11">
 
         <TextView

@@ -51,9 +51,10 @@ class SignUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         auth = FirebaseAuth.getInstance()
-        rootNode = FirebaseDatabase.getInstance("https://fir-d-db270-default-rtdb.asia-southeast1.firebasedatabase.app")
+        rootNode =
+            FirebaseDatabase.getInstance("https://fir-d-db270-default-rtdb.asia-southeast1.firebasedatabase.app")
         reference = rootNode.getReference("users")
-        Log.d("Node","node=$rootNode ref=$reference")
+        Log.d("Node", "node=$rootNode ref=$reference")
 
         view.findViewById<Button>(R.id.up0015).setOnClickListener {
             val name: String =
@@ -83,7 +84,7 @@ class SignUpFragment : Fragment() {
             } else if (!checkPassword(password)) {
                 Toast.makeText(this.context, "Please enter valid password", Toast.LENGTH_SHORT)
                     .show()
-            } else if (age.toInt() > 120) {
+            } else if (age.toInt() > 120 || age.toInt() == 0) {
                 Toast.makeText(this.context, "Please enter valid age", Toast.LENGTH_SHORT)
                     .show()
             } else if (phone.length != 10) {
@@ -94,7 +95,7 @@ class SignUpFragment : Fragment() {
                 binding.up0015.visibility = Button.GONE
 
                 val userDetails =
-                    UserDetails(name, email, password, cPassword, age, phone, bio)
+                    UserDetails(name, email, age, phone, bio)
 
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener { task ->

@@ -5,148 +5,164 @@
     android:layout_height="match_parent"
     tools:context=".view.fragment.DetailsFragment">
 
-    <TextView
-        android:id="@+id/ls001"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:text="User Details"
-        android:textColor="@color/blue"
-        android:textSize="35dp"
-        android:textStyle="italic" />
+        android:layout_centerVertical="true">
 
-    <LinearLayout
-        android:id="@+id/ls002"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/ls001"
-        android:layout_centerHorizontal="true"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical">
-
-        <RelativeLayout
+        <ProgressBar
+            android:id="@+id/lsBar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/blue" />
 
-            <TextView
-                android:id="@+id/ls003"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Name :"
-                android:textSize="27sp" />
-
-            <TextView
-                android:id="@+id/ls004"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_toEndOf="@id/ls003"
-                android:text="null"
-                android:textSize="27sp" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
+        <TextView
+            android:id="@+id/ls001"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lsBar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="User Details"
+            android:textColor="@color/blue"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/ls005"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email :"
-                android:textSize="27sp" />
-
-            <TextView
-                android:id="@+id/ls006"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_toEndOf="@id/ls005"
-                android:text="null"
-                android:textSize="27sp" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/ls002"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ls001"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/ls007"
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Age :"
-                android:textSize="27sp" />
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/ls008"
+                <TextView
+                    android:id="@+id/ls003"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name :"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/ls004"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toEndOf="@id/ls003"
+                    android:text="null"
+                    android:textSize="20sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_toEndOf="@id/ls007"
-                android:text="null"
-                android:textSize="27sp" />
+                android:layout_height="wrap_content">
 
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/ls005"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email :"
+                    android:textSize="20sp" />
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/ls006"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toEndOf="@id/ls005"
+                    android:text="null"
+                    android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/ls009"
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Phone :"
-                android:textSize="27sp" />
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/ls01"
+                <TextView
+                    android:id="@+id/ls007"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Age :"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/ls008"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toEndOf="@id/ls007"
+                    android:text="null"
+                    android:textSize="20sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_toEndOf="@id/ls009"
-                android:text="null"
-                android:textSize="27sp" />
+                android:layout_height="wrap_content">
 
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/ls009"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone :"
+                    android:textSize="20sp" />
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/ls01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toEndOf="@id/ls009"
+                    android:text="null"
+                    android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/ls011"
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bio :"
-                android:textSize="27sp" />
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/ls012"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_toEndOf="@id/ls011"
-                android:text="null"
-                android:textSize="27sp" />
+                <TextView
+                    android:id="@+id/ls011"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bio :"
+                    android:textSize="20sp" />
 
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/ls012"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toEndOf="@id/ls011"
+                    android:text="null"
+                    android:textSize="20sp" />
 
-    </LinearLayout>
+            </RelativeLayout>
 
-    <android.widget.Button
-        android:id="@+id/ls013"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/ls002"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/email_button"
-        android:text="Sign out"
-        android:textColor="@color/white" />
+        </LinearLayout>
+
+        <android.widget.Button
+            android:id="@+id/ls013"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ls002"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/blue"
+            android:text="Sign out"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
 
 </RelativeLayout>
