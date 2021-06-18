@@ -1,6 +1,7 @@
 package com.example.firebased.view.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.Menu
@@ -20,7 +21,6 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.util.regex.Matcher
 import java.util.regex.Pattern
-
 
 class SignUpFragment : Fragment() {
 
@@ -51,10 +51,12 @@ class SignUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         auth = FirebaseAuth.getInstance()
+        rootNode =
+            FirebaseDatabase.getInstance("https://fir-d-db270-default-rtdb.asia-southeast1.firebasedatabase.app")
+        reference = rootNode.getReference("users")
+        Log.d("Node", "node=$rootNode ref=$reference")
 
         view.findViewById<Button>(R.id.up0015).setOnClickListener {
-            rootNode = FirebaseDatabase.getInstance()
-            reference = rootNode.getReference("users")
             val name: String =
                 binding.up0004.text.toString()
             val email: String =
@@ -82,7 +84,7 @@ class SignUpFragment : Fragment() {
             } else if (!checkPassword(password)) {
                 Toast.makeText(this.context, "Please enter valid password", Toast.LENGTH_SHORT)
                     .show()
-            } else if (age.toInt() > 120) {
+            } else if (age.toInt() > 120 || age.toInt() == 0) {
                 Toast.makeText(this.context, "Please enter valid age", Toast.LENGTH_SHORT)
                     .show()
             } else if (phone.length != 10) {
@@ -93,9 +95,7 @@ class SignUpFragment : Fragment() {
                 binding.up0015.visibility = Button.GONE
 
                 val userDetails =
-                    UserDetails(name, email, password, cPassword, age, phone, bio)
-
-                reference.child(phone).setValue(userDetails)
+                    UserDetails(name, email, age, phone, bio)
 
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener { task ->
@@ -105,6 +105,11 @@ class SignUpFragment : Fragment() {
                                 "Sign up successful.",
                                 Toast.LENGTH_SHORT
                             ).show()
+                            val uID = auth.currentUser?.uid
+                            Log.d("database", "$uID")
+                            if (uID != null) {
+                                reference.child(uID).setValue(userDetails)
+                            }
                             Navigation.findNavController(view)
                                 .navigate(R.id.action_signUpFragment_to_newsFragment)
                         } else {

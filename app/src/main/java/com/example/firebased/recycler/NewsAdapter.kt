@@ -10,18 +10,23 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.firebased.R
 import com.example.firebased.data.Info
+import com.example.firebased.util.InternetConnectivity
 import com.google.android.material.snackbar.Snackbar
 
-class NewsAdapter (private val context: Context,
-                   private val news: List<Info>,
-                   private val listener: OnNewsClick) :
+class NewsAdapter(
+    private val context: Context,
+    private val news: List<Info>,
+    private val listener: OnNewsClick
+) :
     RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.news,
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.news,
                 parent,
-                false)
+                false
+            )
         return NewsViewHolder(view)
 
     }
@@ -32,15 +37,25 @@ class NewsAdapter (private val context: Context,
         holder.newsTitle.text = news.title
         Glide.with(context).load(news.urlToImage).into(holder.newsImage)
 
-        holder.itemView.setOnLongClickListener {
-            val publishTime: String = news.publishedAt
-            val date = publishTime.slice(0..9)
-            val time = publishTime.slice(11..18)
-            val snackBar: Snackbar =
-                Snackbar.make(it, "News was published on $date at $time", Snackbar.LENGTH_SHORT)
-            snackBar.animationMode = Snackbar.ANIMATION_MODE_SLIDE
-            snackBar.show()
-            return@setOnLongClickListener true
+        if (InternetConnectivity.isNetworkAvailable(this.context) == true) {
+            holder.itemView.setOnLongClickListener {
+                val publishTime: String = news.publishedAt
+                val date = publishTime.slice(0..9)
+                val time = publishTime.slice(11..18)
+                val snackBar: Snackbar =
+                    Snackbar.make(it, "News was published on $date at $time", Snackbar.LENGTH_SHORT)
+                snackBar.animationMode = Snackbar.ANIMATION_MODE_SLIDE
+                snackBar.show()
+                return@setOnLongClickListener true
+            }
+        } else {
+            holder.itemView.setOnLongClickListener {
+                val snackBar: Snackbar =
+                    Snackbar.make(it, "Not connected to internet", Snackbar.LENGTH_SHORT)
+                snackBar.animationMode = Snackbar.ANIMATION_MODE_SLIDE
+                snackBar.show()
+                return@setOnLongClickListener true
+            }
         }
 
     }
@@ -50,7 +65,8 @@ class NewsAdapter (private val context: Context,
     }
 
 
-    inner class NewsViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    inner class NewsViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView),
+        View.OnClickListener {
         val newsSource: TextView = itemView.findViewById(R.id.categorySourceName)
         val newsTitle: TextView = itemView.findViewById(R.id.categoryTitle)
         val newsImage: ImageView = itemView.findViewById(R.id.categoryImage)
@@ -66,7 +82,7 @@ class NewsAdapter (private val context: Context,
         }
     }
 
-    interface OnNewsClick{
+    interface OnNewsClick {
         fun onItemClick(article: Info, position: Int)
     }
 }
