@@ -3,15 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginHorizontal="20dp"
-    android:layout_marginVertical="5dp"
-    tools:context=".fragment.SignUpFragment">
+    tools:context=".view.fragment.SignUpFragment">
 
 
     <TextView
         android:id="@+id/up001"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="25dp"
         android:text="Create Account,"
         android:textSize="32dp"
@@ -22,6 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/up001"
+        android:layout_marginHorizontal="20dp"
         android:text="Sign up to get started!"
         android:textSize="32dp" />
 
@@ -31,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/up002"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="30dp">
 
         <androidx.appcompat.widget.AppCompatEditText
@@ -47,6 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/up0003"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="5dp">
 
         <androidx.appcompat.widget.AppCompatEditText
@@ -63,6 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/up003"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="5dp">
 
         <androidx.appcompat.widget.AppCompatEditText
@@ -80,6 +83,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/up005"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="5dp">
 
         <androidx.appcompat.widget.AppCompatEditText
@@ -97,6 +101,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/up007"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="5dp">
 
         <androidx.appcompat.widget.AppCompatEditText
@@ -104,7 +109,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Age"
-            android:inputType="number"/>
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -114,6 +119,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/up009"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="5dp">
 
         <androidx.appcompat.widget.AppCompatEditText
@@ -121,7 +127,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Phone"
-            android:inputType="number"/>
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -131,6 +137,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/up011"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="5dp">
 
         <androidx.appcompat.widget.AppCompatEditText
@@ -146,6 +153,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/up013"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/email_button"
         android:gravity="center"
@@ -158,6 +166,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/up015"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="15dp"
         android:layout_weight="11">
 

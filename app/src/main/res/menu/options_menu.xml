@@ -12,10 +12,10 @@
         android:title="Licenses"
         app:showAsAction="never" />
 
-    <item
+    <!--<item
         android:id="@+id/details"
         android:title="User Details"
-        app:showAsAction="never" />
+        app:showAsAction="never" />-->
 
     <item
         android:id="@+id/signOut"

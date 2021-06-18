@@ -1,4 +1,4 @@
-package com.example.firebased.fragment
+package com.example.firebased.view.fragment
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -8,7 +8,7 @@ import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.widget.AppCompatEditText
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -35,6 +35,7 @@ class SignInFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {
@@ -64,14 +65,18 @@ class SignInFragment : Fragment() {
                             } else {
                                 Toast.makeText(
                                     this.context,
-                                    "Authentication Error! Sign up required.",
+                                    "Incorrect email or password!",
                                     Toast.LENGTH_SHORT
                                 )
                                     .show()
                             }
                         }
                 } else {
-                    Toast.makeText(this.context, "Credentials incorrect, Sign up.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this.context,
+                        "Credentials incorrect, Sign up.",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }
@@ -80,30 +85,6 @@ class SignInFragment : Fragment() {
             Navigation.findNavController(view)
                 .navigate(R.id.action_signInFragment_to_signUpFragment)
         }
-
-        /*if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this.context, "Enter credentials to sign in", Toast.LENGTH_SHORT)
-                .show()
-        } else {
-            if (checkPassword(password) || checkEmail(email)) {
-                auth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            Navigation.findNavController(view)
-                                .navigate(R.id.action_signInFragment_to_newsFragment)
-                        } else {
-                            Toast.makeText(
-                                this.context,
-                                "Authentication Error! Sign up required.",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                    }
-            } else {
-                Toast.makeText(this.context, "Wrong details", Toast.LENGTH_SHORT)
-                    .show()
-            }
-        }*/
     }
 
     private fun checkPassword(password: String): Boolean {
