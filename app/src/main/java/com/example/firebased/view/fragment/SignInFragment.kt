@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -50,11 +51,21 @@ class SignInFragment : Fragment() {
         if (auth.currentUser != null) {
             Navigation.findNavController(view).navigate(R.id.action_signInFragment_to_newsFragment)
         } else {
-            binding.in007.setOnClickListener {
+            binding.in0007.setOnClickListener {
                 val email: String =
                     binding.in004.text.toString()
                 val password: String =
                     binding.in006.text.toString()
+
+                binding.in0007.visibility = Button.GONE
+
+                if(email.isEmpty()){
+                    binding.in004.error = "Please enter an email"
+                    binding.in004.requestFocus()
+                } else if(password.isEmpty()){
+                    binding.in006.error = "Please enter password"
+                    binding.in006.requestFocus()
+                }
 
                 if (checkEmail(email) && checkPassword(password)) {
                     auth.signInWithEmailAndPassword(email, password)
@@ -69,6 +80,7 @@ class SignInFragment : Fragment() {
                                     Toast.LENGTH_SHORT
                                 )
                                     .show()
+                                binding.in0007.visibility = Button.VISIBLE
                             }
                         }
                 } else {
@@ -77,6 +89,7 @@ class SignInFragment : Fragment() {
                         "Credentials incorrect, Sign up.",
                         Toast.LENGTH_SHORT
                     ).show()
+                    binding.in0007.visibility = Button.VISIBLE
                 }
             }
         }

@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.fragment.DetailsFragment">
 
+    <TextView
+        android:id="@+id/ls001"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="User Details"
+        android:textColor="@color/blue"
+        android:textSize="35dp"
+        android:textStyle="italic" />
+
     <LinearLayout
         android:id="@+id/ls002"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/ls001"
+        android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -27,11 +39,11 @@
 
             <TextView
                 android:id="@+id/ls004"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_toEndOf="@id/ls003"
-                android:text="Username"
+                android:text="null"
                 android:textSize="27sp" />
 
         </RelativeLayout>
@@ -49,11 +61,11 @@
 
             <TextView
                 android:id="@+id/ls006"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_toEndOf="@id/ls005"
-                android:text="Email id"
+                android:text="null"
                 android:textSize="27sp" />
 
         </RelativeLayout>
@@ -71,11 +83,11 @@
 
             <TextView
                 android:id="@+id/ls008"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_toEndOf="@id/ls007"
-                android:text="20"
+                android:text="null"
                 android:textSize="27sp" />
 
         </RelativeLayout>
@@ -93,11 +105,11 @@
 
             <TextView
                 android:id="@+id/ls01"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_toEndOf="@id/ls009"
-                android:text="1234567890"
+                android:text="null"
                 android:textSize="27sp" />
 
         </RelativeLayout>
@@ -115,11 +127,11 @@
 
             <TextView
                 android:id="@+id/ls012"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_toEndOf="@id/ls011"
-                android:text="Sample"
+                android:text="null"
                 android:textSize="27sp" />
 
         </RelativeLayout>
@@ -132,8 +144,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/ls002"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/email_button"
-        android:text="Sign out" />
+        android:text="Sign out"
+        android:textColor="@color/white" />
 
 </RelativeLayout>
