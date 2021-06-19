@@ -33,7 +33,7 @@
         android:layout_below="@id/in002"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="150dp"
-        app:boxStrokeColor="@color/pink"
+        app:boxStrokeColor="@color/blue"
         app:endIconMode="clear_text">
 
         <androidx.appcompat.widget.AppCompatEditText
@@ -52,7 +52,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/in003"
         android:layout_marginHorizontal="20dp"
-        app:boxStrokeColor="@color/pink"
         app:endIconMode="password_toggle">
 
         <androidx.appcompat.widget.AppCompatEditText

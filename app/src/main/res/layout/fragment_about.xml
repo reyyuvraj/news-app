@@ -51,5 +51,30 @@
         android:layout_below="@id/ut005"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="App incomplete due to incompetence." />
+        android:maxLines="2"
+        android:text="This app will show Indian news."
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/ut007"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ut006"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="App designed following, "
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/toDocument"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ut007"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:text="this document"
+        android:textColor="@color/blue"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
 </RelativeLayout>

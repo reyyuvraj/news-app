@@ -35,7 +35,13 @@ class AboutFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.ut005.setOnClickListener {
-            val uri = Uri.parse("https://github.com/reyyuvraj/firebased")
+            val uri = Uri.parse("https://github.com/reyyuvraj/Firebased")
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+            requireActivity().startActivity(intent)
+        }
+
+        binding.toDocument.setOnClickListener {
+            val uri = Uri.parse("https://docs.google.com/document/d/184YmELP5jQmvMcNuLG0alQLtbgToeiqJKlJ3UEjJgHI/edit")
             val intent = Intent(Intent.ACTION_VIEW, uri)
             requireActivity().startActivity(intent)
         }
