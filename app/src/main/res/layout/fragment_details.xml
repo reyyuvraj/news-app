@@ -5,6 +5,40 @@
     android:layout_height="match_parent"
     tools:context=".view.fragment.DetailsFragment">
 
+    <ImageView
+        android:id="@+id/lsBlue"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/blue" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/lsBlue"
+        android:scaleType="centerCrop"
+        android:src="@drawable/black" />
+
+    <ImageView
+        android:id="@+id/lsAvatar"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/avatar" />
+
+    <TextView
+        android:id="@+id/ls004"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lsAvatar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="name"
+        android:textColor="@color/pink"
+        android:textSize="25sp" />
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,8 +59,9 @@
             android:layout_below="@id/lsBar"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
+            android:fontFamily="cursive"
             android:text="User Details"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -45,32 +80,12 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/ls003"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Name :"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/ls004"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_toEndOf="@id/ls003"
-                    android:text="null"
-                    android:textSize="20sp" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <TextView
                     android:id="@+id/ls005"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="Email :"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
 
                 <TextView
@@ -79,7 +94,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_toEndOf="@id/ls005"
+                    android:fontFamily="casual"
                     android:text="null"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
 
             </RelativeLayout>
@@ -92,7 +109,9 @@
                     android:id="@+id/ls007"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="Age :"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
 
                 <TextView
@@ -101,7 +120,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_toEndOf="@id/ls007"
+                    android:fontFamily="casual"
                     android:text="null"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
 
             </RelativeLayout>
@@ -114,7 +135,9 @@
                     android:id="@+id/ls009"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="Phone :"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
 
                 <TextView
@@ -123,7 +146,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_toEndOf="@id/ls009"
+                    android:fontFamily="casual"
                     android:text="null"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
 
             </RelativeLayout>
@@ -136,7 +161,9 @@
                     android:id="@+id/ls011"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="Bio :"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
 
                 <TextView
@@ -145,7 +172,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_toEndOf="@id/ls011"
+                    android:fontFamily="casual"
                     android:text="null"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
 
             </RelativeLayout>
