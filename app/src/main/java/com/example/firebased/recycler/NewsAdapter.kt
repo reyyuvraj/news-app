@@ -9,16 +9,17 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.firebased.R
-import com.example.firebased.data.Info
+import com.example.firebased.model.Info
 import com.example.firebased.util.InternetConnectivity
 import com.google.android.material.snackbar.Snackbar
 
 class NewsAdapter(
     private val context: Context,
-    private val news: List<Info>,
     private val listener: OnNewsClick
 ) :
     RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
+
+    private var news: List<Info> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val view =
@@ -80,6 +81,11 @@ class NewsAdapter(
             val pNews = news[position]
             listener.onItemClick(pNews, position)
         }
+    }
+
+    fun setNews(aNews: List<Info>) {
+        this.news = aNews
+        notifyDataSetChanged()
     }
 
     interface OnNewsClick {

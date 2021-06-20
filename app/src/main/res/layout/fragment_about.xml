@@ -12,9 +12,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="120dp"
-        android:text="About us"
-        android:textSize="25dp"
-        android:textStyle="italic" />
+        android:fontFamily="sans-serif-light"
+        android:text="About"
+        android:textColor="#626262"
+        android:textSize="25dp" />
 
     <ImageView
         android:id="@+id/ut003"
@@ -33,6 +34,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="Created by reyyuvraj"
+        android:textColor="#626262"
         android:textSize="18sp" />
 
     <ImageView
@@ -53,6 +55,7 @@
         android:layout_marginTop="10dp"
         android:maxLines="2"
         android:text="This app will show Indian news."
+        android:textColor="#626262"
         android:textSize="20sp" />
 
     <TextView
@@ -62,7 +65,8 @@
         android:layout_below="@id/ut006"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="App designed following, "
+        android:text="App designed based on this, "
+        android:textColor="#626262"
         android:textSize="16sp" />
 
     <TextView
