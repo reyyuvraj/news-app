@@ -1,4 +1,4 @@
-package com.example.firebased.data
+package com.example.firebased.model
 
 data class Info (
     val source: Source,

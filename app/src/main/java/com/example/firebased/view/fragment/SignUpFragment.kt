@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.firebased.R
-import com.example.firebased.data.UserDetails
+import com.example.firebased.model.UserDetails
 import com.example.firebased.databinding.FragmentSignUpBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -82,7 +82,7 @@ class SignUpFragment : Fragment() {
             } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 Toast.makeText(this.context, "Please enter valid email", Toast.LENGTH_SHORT).show()
             } else if (!checkPassword(password)) {
-                Toast.makeText(this.context, "Please enter valid password", Toast.LENGTH_SHORT)
+                Toast.makeText(this.context, "Enter a password of length 8 or greater, an uppercase char and a numeric digit must be included.", Toast.LENGTH_SHORT)
                     .show()
             } else if (age.toInt() > 120 || age.toInt() == 0) {
                 Toast.makeText(this.context, "Please enter valid age", Toast.LENGTH_SHORT)
@@ -137,12 +137,9 @@ class SignUpFragment : Fragment() {
         }
     }
 
-    private fun signUpUser() {
-    }
-
     private fun checkPassword(password: String): Boolean {
         val pattern: Pattern
-        val pPattern = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$"
+        val pPattern = "^(?=.*[0-9])(?=.*[A-Z])(?=\\S+$).{4,}$"
         pattern = Pattern.compile(pPattern)
         val matcher: Matcher = pattern.matcher(password)
 

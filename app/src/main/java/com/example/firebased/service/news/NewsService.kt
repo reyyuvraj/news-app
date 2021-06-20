@@ -1,6 +1,6 @@
 package com.example.firebased.service.news
 
-import com.example.firebased.data.DataItem
+import com.example.firebased.model.DataItem
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

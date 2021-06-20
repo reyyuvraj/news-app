@@ -1,3 +1,3 @@
-package com.example.firebased.data
+package com.example.firebased.model
 
 data class Source (val name: String)

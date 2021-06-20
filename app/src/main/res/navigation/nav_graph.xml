@@ -75,10 +75,10 @@
         <action
             android:id="@+id/action_newsFragment_to_signInFragment"
             app:destination="@id/signInFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_top"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_bottom"
             app:popUpTo="@id/newsFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -110,10 +110,10 @@
         <action
             android:id="@+id/action_detailsFragment_to_signInFragment"
             app:destination="@id/signInFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_top"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_bottom"
             app:popUpTo="@id/signInFragment"
             app:popUpToInclusive="true" />
     </fragment>
