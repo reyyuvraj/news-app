@@ -13,7 +13,8 @@ class NewsRepository constructor(val application: Application) {
 
     val newsE = MutableLiveData<DataItem>()
     fun getData(): MutableLiveData<DataItem> {
-        val news = NewsClient.getClient(application).getData("in", 1)
+        val page = 1
+        val news = NewsClient.getClient(application).getData("in", page)
         news.enqueue(object : Callback<DataItem> {
             override fun onResponse(call: Call<DataItem>, response: Response<DataItem>) {
                 val news = response.body()
