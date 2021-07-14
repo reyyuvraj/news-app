@@ -1,5 +1,6 @@
 package com.example.firebased.model
 
 data class DataItem (
-    val articles: List<Info>
+    val totalResults: Int,
+    val articles: MutableList<Info>
 )

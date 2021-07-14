@@ -16,5 +16,5 @@ interface NewsService {
     fun getData(
         @Query("country") country: String,
         @Query("page") page: Int
-    ): Call<DataItem>
+    ): Call<DataItem>//changed Call to Response
 }
