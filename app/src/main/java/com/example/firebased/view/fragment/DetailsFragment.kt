@@ -36,7 +36,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentDetailsBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -52,11 +52,11 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
         reference.get().addOnSuccessListener {
             binding.lsBar.visibility = ProgressBar.GONE
-            var name: String = it.child("name").value.toString()
-            var email: String = it.child("email").value.toString()
-            var age: String = it.child("age").value.toString()
-            var phone: String = it.child("phone").value.toString()
-            var bio: String = it.child("bio").value.toString()
+            val name: String = it.child("name").value.toString()
+            val email: String = it.child("email").value.toString()
+            val age: String = it.child("age").value.toString()
+            val phone: String = it.child("phone").value.toString()
+            val bio: String = it.child("bio").value.toString()
 
             binding.ls004.text = name
             binding.ls006.text = email
