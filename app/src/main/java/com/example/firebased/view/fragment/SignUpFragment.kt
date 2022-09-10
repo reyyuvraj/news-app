@@ -14,11 +14,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.firebased.R
-import com.example.firebased.model.UserDetails
 import com.example.firebased.databinding.FragmentSignUpBinding
+import com.example.firebased.model.UserDetails
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -26,13 +26,12 @@ class SignUpFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: FragmentSignUpBinding
-    private lateinit var rootNode: FirebaseDatabase
-    private lateinit var reference: DatabaseReference
+    private val db = Firebase.firestore
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentSignUpBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -51,10 +50,6 @@ class SignUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         auth = FirebaseAuth.getInstance()
-        rootNode =
-            FirebaseDatabase.getInstance("https://fir-d-db270-default-rtdb.asia-southeast1.firebasedatabase.app")
-        reference = rootNode.getReference("users")
-        Log.d("Node", "node=$rootNode ref=$reference")
 
         view.findViewById<Button>(R.id.up0015).setOnClickListener {
             val name: String =
@@ -82,7 +77,11 @@ class SignUpFragment : Fragment() {
             } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 Toast.makeText(this.context, "Please enter valid email", Toast.LENGTH_SHORT).show()
             } else if (!checkPassword(password)) {
-                Toast.makeText(this.context, "Enter a password of length 8 or greater, an uppercase char and a numeric digit must be included.", Toast.LENGTH_SHORT)
+                Toast.makeText(
+                    this.context,
+                    "Enter a password of length 8 or greater, an uppercase char and a numeric digit must be included.",
+                    Toast.LENGTH_SHORT
+                )
                     .show()
             } else if (age.toInt() > 120 || age.toInt() == 0) {
                 Toast.makeText(this.context, "Please enter valid age", Toast.LENGTH_SHORT)
@@ -94,33 +93,54 @@ class SignUpFragment : Fragment() {
 
                 binding.up0015.visibility = Button.GONE
 
-                val userDetails =
-                    UserDetails(name, email, age, phone, bio)
+                val userDetail = hashMapOf(
+                    "name" to name,
+                    "email" to email,
+                    "age" to age,
+                    "phone" to phone,
+                    "bio" to bio
+                )
 
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            Toast.makeText(
-                                this.context,
-                                "Sign up successful.",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            val uID = auth.currentUser?.uid
-                            Log.d("database", "$uID")
-                            if (uID != null) {
-                                reference.child(uID).setValue(userDetails)
+                            Log.d("signup", "onViewCreated: Account created")
+                            val uId = auth.currentUser?.uid
+
+                            val reference = hashMapOf(
+                                "uid" to uId
+                            )
+
+                            if (uId != null) {
+                                db.collection("users")
+                                    .add(userDetail)
+                                    .addOnSuccessListener { documentReference ->
+                                        Log.d(
+                                            "db",
+                                            "snapshot added with ID: ${documentReference.id}"
+                                        )
+                                        Navigation.findNavController(view)
+                                            .navigate(R.id.action_signUpFragment_to_newsFragment)
+                                    }
+                                    .addOnFailureListener { e ->
+                                        Log.d("db", "Error adding document", e)
+                                        Toast.makeText(
+                                            this.context,
+                                            "Sign up failed.",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        binding.up0015.visibility = Button.VISIBLE
+                                    }
+                                db.collection(uId).add(userDetail)
                             }
-                            Navigation.findNavController(view)
-                                .navigate(R.id.action_signUpFragment_to_newsFragment)
-                        } else {
-                            Toast.makeText(
-                                this.context,
-                                "Sign up failed.",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            binding.up0015.visibility = Button.VISIBLE
                         }
+                    }.addOnFailureListener {
+                        Toast.makeText(
+                            this.context,
+                            "Sign up failed", Toast.LENGTH_SHORT
+                        ).show()
                     }
+
             } else {
                 Toast.makeText(
                     this.context,

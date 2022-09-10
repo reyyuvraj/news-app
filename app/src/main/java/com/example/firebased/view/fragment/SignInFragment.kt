@@ -2,6 +2,7 @@ package com.example.firebased.view.fragment
 
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.Menu
@@ -28,7 +29,7 @@ class SignInFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentSignInBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -86,6 +87,8 @@ class SignInFragment : Fragment() {
                                         .show()
                                     binding.in0007.visibility = Button.VISIBLE
                                 }
+                            } .addOnFailureListener {
+                                Log.d("db", "Error adding document", it)
                             }
                     }
                 } else {

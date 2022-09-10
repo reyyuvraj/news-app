@@ -114,7 +114,7 @@
             app:exitAnim="@anim/slide_out_top"
             app:popEnterAnim="@anim/slide_in_top"
             app:popExitAnim="@anim/slide_out_bottom"
-            app:popUpTo="@id/signInFragment"
+            app:popUpTo="@id/newsFragment"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>
